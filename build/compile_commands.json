@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/njtechrm01/traffic_light_detect/build",
+  "command": "/home/njtechrm01/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clang++   -isystem /usr/local/include/opencv4  -g   -std=gnu++11 -o CMakeFiles/traffic_light_detect.dir/src/aruco_test.cpp.o -c /home/njtechrm01/traffic_light_detect/src/aruco_test.cpp",
+  "file": "/home/njtechrm01/traffic_light_detect/src/aruco_test.cpp"
+},
+{
+  "directory": "/home/njtechrm01/traffic_light_detect/build",
+  "command": "/home/njtechrm01/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clang++   -isystem /usr/local/include/opencv4  -g   -std=gnu++11 -o CMakeFiles/traffic_light_detect.dir/src/lightdetect.cpp.o -c /home/njtechrm01/traffic_light_detect/src/lightdetect.cpp",
+  "file": "/home/njtechrm01/traffic_light_detect/src/lightdetect.cpp"
+},
+{
+  "directory": "/home/njtechrm01/traffic_light_detect/build",
+  "command": "/home/njtechrm01/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clang++   -isystem /usr/local/include/opencv4  -g   -std=gnu++11 -o CMakeFiles/traffic_light_detect.dir/src/main.cpp.o -c /home/njtechrm01/traffic_light_detect/src/main.cpp",
+  "file": "/home/njtechrm01/traffic_light_detect/src/main.cpp"
+}
+]
