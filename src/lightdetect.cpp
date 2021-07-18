@@ -1,7 +1,7 @@
 #include "lightdetect.hpp"
 using namespace cv;
 using namespace std;
-
+// #define DEBUG
 void lightDectInit(Mat img_roi,int width) {
 	Mat img_r, img_g;
 	vector<Mat> channels;
@@ -17,22 +17,31 @@ void lightDectInit(Mat img_roi,int width) {
 	cv::dilate(img_g, img_g, Mat());
 	cv::dilate(img_g, img_g, Mat());
 	detectLight(img_r, img_g,width);
+#ifdef DEBUG
 	imshow("red", img_r);
 	imshow("green", img_g);
 	imshow("origin", img_roi);
 	waitKey(1);
+#endif
 }
 
 void detectLight(Mat roi_r, Mat roi_g,int width) {
 	int area_r = bSums(roi_r);
 	int area_g = bSums(roi_g);
+#ifdef DEBUG
 	cout<<"red:"<<area_r<<"\tgreen:"<<area_g<<endl;
-	if (area_g - area_r >= width) {
-		cout << "green" << endl;
-	} else if (area_r - area_g >=width) {
+#endif
+	// if (area_g - area_r >= width) {
+	// 	cout << "green" << endl;
+	// } else if (area_r - area_g >=width) {
+	// 	cout << "red" << endl;
+	// } else {
+	// 	cout << "yellow" << endl;
+	// }
+	if (area_r - area_g >=width) {
 		cout << "red" << endl;
 	} else {
-		cout << "yellow" << endl;
+		cout << "green" << endl;
 	}
 }
 
