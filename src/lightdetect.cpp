@@ -2,7 +2,8 @@
 using namespace cv;
 using namespace std;
 // #define DEBUG
-void lightDectInit(Mat img_roi,int width) {
+bool lightDectInit(Mat img_roi,int width) {
+	bool ret;
 	Mat img_r, img_g;
 	vector<Mat> channels;
 	
@@ -16,16 +17,17 @@ void lightDectInit(Mat img_roi,int width) {
 	threshold(img_g, img_g, 160, 255, THRESH_BINARY);
 	cv::dilate(img_g, img_g, Mat());
 	cv::dilate(img_g, img_g, Mat());
-	detectLight(img_r, img_g,width);
+	ret=detectLight(img_r, img_g,width);
 #ifdef DEBUG
 	imshow("red", img_r);
 	imshow("green", img_g);
 	imshow("origin", img_roi);
 	waitKey(1);
 #endif
+	return ret;
 }
 
-void detectLight(Mat roi_r, Mat roi_g,int width) {
+bool detectLight(Mat roi_r, Mat roi_g,int width) {
 	int area_r = bSums(roi_r);
 	int area_g = bSums(roi_g);
 #ifdef DEBUG
@@ -39,9 +41,9 @@ void detectLight(Mat roi_r, Mat roi_g,int width) {
 	// 	cout << "yellow" << endl;
 	// }
 	if (area_r - area_g >=width) {
-		cout << "red" << endl;
+		return false;
 	} else {
-		cout << "green" << endl;
+		return true;
 	}
 }
 
